@@ -1,0 +1,30 @@
+<div class="button-row">
+  <a mat-raised-button color="primary" (click)="customerDetails()"><mat-icon>show</mat-icon></a>
+</div>
+<form [formGroup]="customerForm" (ngSubmit)="onFormSubmit(customerForm.value)">
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Email" formControlName="email"
+           [errorStateMatcher]="matcher">
+    <mat-error>
+      <span *ngIf="!customerForm.get('email').valid && customerForm.get('email').touched">Please enter Email</span>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Password" formControlName="password"
+           [errorStateMatcher]="matcher">
+    <mat-error>
+      <span *ngIf="!customerForm.get('password').valid && customerForm.get('password').touched">Please enter Password</span>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Name" formControlName="name"
+           [errorStateMatcher]="matcher">
+    <mat-error>
+      <span *ngIf="!customerForm.get('name').valid && customerForm.get('name').touched">Please enter Name</span>
+    </mat-error>
+  </mat-form-field>
+
+  <div class="button-row">
+    <button type="submit" [disabled]="!customerForm.valid" mat-raised-button color="primary"><mat-icon>save</mat-icon></button>
+  </div>
+</form>

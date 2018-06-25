@@ -1,0 +1,30 @@
+<div class="button-row">
+  <a mat-raised-button color="primary" [routerLink]="['/customers']"><mat-icon>list</mat-icon></a>
+</div>
+<form [formGroup]="customerFrom" (ngSubmit)="onFormSubmit(customerFrom.value)">
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Email" formControlName="email"
+           [errorStateMatcher]="matcher">
+    <mat-error>
+      <span *ngIf="!customerFrom.get('email').valid && customerFrom.get('email').touched">Please enter Email</span>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Password" formControlName="password"
+           [errorStateMatcher]="matcher">
+    <mat-error>
+      <span *ngIf="!customerFrom.get('password').valid && customerFrom.get('password').touched">Please enter Password</span>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Name" formControlName="name"
+           [errorStateMatcher]="matcher">
+    <mat-error>
+      <span *ngIf="!customerFrom.get('name').valid && customerFrom.get('name').touched">Please enter Name</span>
+    </mat-error>
+  </mat-form-field>
+
+  <div class="button-row">
+    <button type="submit" [disabled]="!customerFrom.valid" mat-raised-button color="primary"><mat-icon>save</mat-icon></button>
+  </div>
+</form>

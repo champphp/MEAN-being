@@ -1,0 +1,19 @@
+<div class="button-row">
+  <a mat-raised-button color="primary" [routerLink]="['/customers']"><mat-icon>list</mat-icon></a>
+</div>
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title><h2>{{cus.email}}</h2></mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <dl>
+      <dt>Name:</dt>
+      <dd>{{cus.name}}</dd>
+      
+    </dl>
+  </mat-card-content>
+  <mat-card-actions>
+    <a mat-raised-button color="primary" [routerLink]="['/customer-edit', cus._id]"><mat-icon>edit</mat-icon></a>
+    <a mat-raised-button color="warn" (click)="deleteCus(cus._id)"><mat-icon>delete</mat-icon></a>
+  </mat-card-actions>
+</mat-card>
