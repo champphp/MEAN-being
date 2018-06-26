@@ -1,0 +1,16 @@
+<div class="button-row">
+  <a mat-raised-button color="primary" (click)="addressDetails()"><mat-icon>show</mat-icon></a>
+</div>
+<form [formGroup]="addressFrom" (ngSubmit)="onFormSubmit(addressFrom.value)">
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Address" formControlName="address"
+           [errorStateMatcher]="matcher">
+    <mat-error>
+      <span *ngIf="!addressFrom.get('address').valid && addressFrom.get('address').touched">Please enter Address</span>
+    </mat-error>
+  </mat-form-field>
+
+  <div class="button-row">
+    <button type="submit" [disabled]="!addressFrom.valid" mat-raised-button color="primary"><mat-icon>save</mat-icon></button>
+  </div>
+</form>

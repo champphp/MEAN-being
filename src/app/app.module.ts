@@ -21,6 +21,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CustomerCreateComponent } from './customer-create/customer-create.component';
 import { CustomerDetailComponent } from './customer-detail/customer-detail.component';
 import { CustomerEditComponent } from './customer-edit/customer-edit.component';
+import { AddressCreateComponent } from './address-create/address-create.component';
+import { AddressEditComponent } from './address-edit/address-edit.component';
 
 
 const appRoutes: Routes = [
@@ -32,7 +34,7 @@ const appRoutes: Routes = [
   {
     path: 'customer-details/:id',
     component: CustomerDetailComponent,
-    data: { title: 'Book Details' }
+    data: { title: 'Customer Details' }
   },
   {
     path: 'customers-create',
@@ -42,7 +44,17 @@ const appRoutes: Routes = [
   {
     path: 'customer-edit/:id',
     component: CustomerEditComponent,
-    data: { title: 'Edit Book' }
+    data: { title: 'Edit customer' }
+  },
+  {
+    path: 'address-create/:id',
+    component: AddressCreateComponent,
+    data: { title: 'Create address' }
+  },
+  {
+    path: 'address-edit/:cus_id/:id',
+    component: AddressEditComponent,
+    data: { title: 'Edit address' }
   },
   { path: '',
     redirectTo: '/customers',
@@ -56,7 +68,9 @@ const appRoutes: Routes = [
     CustomerComponent,
     CustomerCreateComponent,
     CustomerDetailComponent,
-    CustomerEditComponent
+    CustomerEditComponent,
+    AddressCreateComponent,
+    AddressEditComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),

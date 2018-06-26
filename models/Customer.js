@@ -18,9 +18,13 @@ var CustomerSchema = new mongoose.Schema({
         required:true,
         minlength: 6
     },
-    name: {
-        type:String
-    }
+    name: String,
+    Address1:[{ type: mongoose.Schema.Types.ObjectId, ref: 'Address' }]
+    // {
+    //     type: [mongoose.Schema.Types.ObjectId],
+    //     ref: 'Address'
+    //     // default: null
+    // }
     
   });
 

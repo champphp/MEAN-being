@@ -69,5 +69,25 @@ export class ApiService {
         catchError(this.handleError)
       );
   }
+
+  postAddress(data,id): Observable<any> {
+    return this.http.post(apiUrl+`/address/${id}`, data, httpOptions)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  getAddress(id): Observable<any>{
+    return this.http.get(`${apiUrl}/address/${id}`,httpOptions).pipe(
+      map(this.extractData),
+      catchError(this.handleError));
+  }
+
+  updateAddress(id,data): Observable<any>{
+    return this.http.put(`${apiUrl}/address/${id}`,data,httpOptions)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
   
 }
