@@ -89,5 +89,12 @@ export class ApiService {
         catchError(this.handleError)
       );
   }
+
+  deleteAddress(id): Observable<any>{
+    return this.http.delete(`${apiUrl}/address/${id}`,httpOptions)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
   
 }

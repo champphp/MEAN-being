@@ -1,9 +1,13 @@
 <div class="button-row">
-  <a mat-raised-button color="primary" [routerLink]="['/customers']"><mat-icon>list</mat-icon></a>
+  <a mat-raised-button color="primary" [routerLink]="['/customers']">
+    <mat-icon>list</mat-icon>
+  </a>
 </div>
 <mat-card class="example-card">
   <mat-card-header>
-    <mat-card-title><h2>{{cus.email}}</h2></mat-card-title>
+    <mat-card-title>
+      <h2>{{cus.email}}</h2>
+    </mat-card-title>
   </mat-card-header>
   <mat-card-content>
     <dl>
@@ -12,19 +16,35 @@
     </dl>
   </mat-card-content>
   <mat-card-header>
-    <mat-card-title><h2>Address</h2></mat-card-title>
+    <mat-card-title>
+      <h2>Address</h2>
+    </mat-card-title>
   </mat-card-header>
   <ol>
-    <li style="margin: 10px 0 10px 0; "  *ngFor="let item of cus.Address1; index as i">
-      {{item.address}} 
-      <a style="margin-left: 20px;" mat-raised-button color="primary" [routerLink]="['/address-edit',cus._id, item._id]"><mat-icon>edit</mat-icon> Edit Address</a>
+    <li style="margin: 10px 0 10px 0; " *ngFor="let item of cus.Address1; index as i">
+      {{item.address}}
+      <a style="margin-left: 20px;" mat-raised-button color="primary" [routerLink]="['/address-edit',cus._id, item._id]">
+        <mat-icon>edit</mat-icon> Edit
+      </a>
+
+      <a style="margin-left: 20px;" mat-raised-button color="warn" (click)="deleteAddress(cus._id,item._id)">
+        <mat-icon>delete</mat-icon> Delete
+      </a>
     </li>
-    <li style="list-style-type: none; margin-top: 10px;"><a mat-raised-button color="accent" [routerLink]="['/address-create', cus._id]"><mat-icon>add</mat-icon></a></li>
+    <li style="list-style-type: none; margin-top: 10px;">
+      <a mat-raised-button color="accent" [routerLink]="['/address-create', cus._id]">
+        <mat-icon>add</mat-icon>
+      </a>
+    </li>
   </ol>
   <br>
   <br>
   <mat-card-actions>
-    <a mat-raised-button color="primary" [routerLink]="['/customer-edit', cus._id]"><mat-icon>edit</mat-icon></a>
-    <a mat-raised-button color="warn" (click)="deleteCus(cus._id)"><mat-icon>delete</mat-icon></a>
+    <a mat-raised-button color="primary" [routerLink]="['/customer-edit', cus._id]">
+      <mat-icon>edit</mat-icon>
+    </a>
+    <a mat-raised-button color="warn" (click)="deleteCus(cus._id)">
+      <mat-icon>delete</mat-icon>
+    </a>
   </mat-card-actions>
 </mat-card>

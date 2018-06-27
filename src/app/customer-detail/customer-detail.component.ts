@@ -20,7 +20,6 @@ export class CustomerDetailComponent implements OnInit {
   getCustomerDetails(id) {
     this.api.getCustomerI(id)
       .subscribe(data => {
-        console.log(data);
         this.cus = data;
       });
   }
@@ -33,6 +32,14 @@ export class CustomerDetailComponent implements OnInit {
           console.log(err);
         }
       );
+  }
+
+  deleteAddress(cus_id,add_id){
+    this.api.deleteAddress(add_id).subscribe(res =>{
+      this.getCustomerDetails(cus_id);
+    }),(err) => {
+      console.log(err);
+    }
   }
 
 }
